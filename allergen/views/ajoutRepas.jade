@@ -1,0 +1,41 @@
+doctype html
+html
+	head.
+		<link rel='stylesheet', href='../stylesheets/ajoutRepas.css'>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="../javascripts/ajoutRepas.js"></script>
+		<link rel="stylesheet" type="text/css" href="../stylesheets/jquery.datetimepicker.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="../javascripts/jquery.datetimepicker.full.min.js"></script>
+
+	header
+		include header.jade
+
+	body.
+		<div id="main">
+
+			<h2 id="title" >Ajout d'un repas</h2>
+
+			<span id="div1">
+				<input class="input" id="datetimepicker" type="text"/>
+			</span>
+
+			<span id="div2">
+				<select class="input" id="alim"></select>
+				<input class="input" id="qte" type='number' step="10"/><br>
+			 	<button type="button" onclick="AjouterAliment()">Ajouter aliment</button>
+			</span>
+
+			<span id="div3">
+				<h3> Aliments ajoutés</h3>
+				<table id="alimAjout"></table>
+			</span>
+
+		</div>
+
+		<div id="div4">
+			<input type="submit" value="Soumettre" onclick='generatePost()' id="sub">
+		</div>
+
+	footer 
+		include footer.jade

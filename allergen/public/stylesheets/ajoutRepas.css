@@ -1,0 +1,52 @@
+#title {
+    text-align:center;
+}
+
+#main {
+    text-align:center;
+}
+
+#div1 {
+    width: 30%;
+    float: left;
+    border:2px solid green;
+    border-radius: 10px;
+    height: 300px;
+    text-align:center;
+    margin: 10px;
+}
+#div2 {
+    width: 30%;
+    float: left;
+    border:2px solid green;
+    border-radius: 10px;
+    height: 300px;
+    text-align:center;
+    margin: 10px;
+}
+#div3 {
+    width: 30%;
+    float: left;
+    border:2px solid green;
+    border-radius: 10px;
+    height: 300px;
+    text-align:center;
+    margin: 10px;
+}
+
+#datetimepicker {
+    float:left;
+    margin-top: 30px;
+}
+
+#div4 {
+    width: 90%;
+    clear : left;
+    /*background-color: red;*/
+    color: white;
+    text-align:center;
+}
+
+#alimAjout {
+    margin: 0 auto;
+}

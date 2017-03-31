@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="UTF-8" content="Rapport Projet Web">
+    <title> Rapport Projet</title>
+  </head>
+  <body>
+    <h1>Rapport ProjetOuaibe - Mineure AppliOuaibe</h1>
+    <p>Mehdi Douch - 31/03/2017</p>
+
+    <h2>1. Description du projet Allergen</h2>
+    <p>
+		Beaucoup de personnes souffrent de problèmes d’intolérances alimentaires et de pathologies telles que le SCI/colopathie fonctionnelle. Chez ces personnes la consommation de certains aliments provoque l’apparition de symptômes qui minent la qualité de vie. Certains aliments sont connus pour être particulièrement mal absorbés par les personnes souffrant de SCI : les <a href='https://fr.wikipedia.org/wiki/FODMAP'>FODMAP</a>. Cependant toutes les personnes ne sont pas égales devant les FODMAPs et il est fréquent que certaines personnes souffrant de SCI tolèrent parfaitement une partie de ces aliments. Le régime sans FODMAP étant particulèrement restrictif il est dans l’intérêt de chaque malade de determiner leplus précisement possible le champ des aliments qu’il tolère et qu’il ne tolère pas afin de pouvoir vivre la vie la plus normale possible. Déterminer ce périmètre passe souvent par le suivi d’un régime dit d’ « élimination » pendant lequel les personnes élimine une partie des FODMAP pendant une période de quelques semaines afin de déterminer si l’élimination conduit à une amélioration de l’état de santé général.
+	</p>
+
+	<p>
+		Le projet Allergène est un projet qui vise à aider les personnes souffrantes de SCI en leur permettant de prendre note de ce qu’ils mangent et des symptômes qu’ils présentent afin de les aider à déterminer le périmètre de ce qu’ils peuvent manger tout en restant en bonne santé et améliorer leur état de santé général au quotidien.
+	</p>
+
+	<p>
+		Le projet allergène est un projet que j’ai envie de réaliser depuis un certain temps car je souffre, tout comme ma maman de’intolérances alimentaires et je n’ai trouvé aucun outil qui facilite le régime d’élimination.
+	</p>
+
+    <h2>2. Objectif de l’application Allergen</h2>
+    <ul>
+    	<li>Page 1: Enregistrement des repas et de la composition de celui-ci</li>
+    	<li>Page 2 : Enregistrement des symptômes</li>
+    	<li>Page 3 : Pour une période de temps donnée, être capable de restituer les allergènes sur un graphique dont l’abcisse serait le temps et représenterait de manière graphique les allergènes absorbés par l’utilisateur ainsi que les symptomes digestif pendant ce même labs de temps.</li>
+    </ul>
+    <p>
+    	Dans une version plus avancée il y aura la possibilité de démarer un régime d’élimination et d’être guidé par l’application
+    </p>
+
+
+    <h2>3. Architecture du projet</h2>
+    <p>
+    	Le projet sera composé d’une <b>API</b> qui sert les données d’une part et d’une <b>application web</b> qui affiche les données et est l’interface avec l’utilisateur d’autre part.
+    </p>
+    <p>
+		Afin de réaliser le projet, le framework Node.js Express a été utilisé.
+    </p>
+
+    <h2>4. Structure de la base de données</h2>
+    <table>
+    	<tr>
+    		<th>Table</th>
+    		<th>Champs</th>
+    	</tr>
+    	<tr>
+    		<td>user</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> de l'utilisateur</li>
+    				<li><b>nom</b> de l'utilisateur</li>
+    				<li><b>prénom</b> de l'utilisateur</li>
+    				<li><b>date de naissance</b> de l'utilisateur</li>
+    			</ul>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>aliments</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> de l'utilisateur</li>
+    				<li><b>nom</b> de l'aliment</li>
+    			</ul>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>repas</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> de l'aliment</li>
+    				<li><b>date</b> a laquelle lepas a été pris</li>
+    			</ul>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>composition_du_repas</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> du repas</li>
+    				<li><b>ID</b> de l'aliment</li>
+    				<li><b>qte</b> absorbée</li>
+    			</ul>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>allergens</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> de l'allergène</li>
+    				<li><b>nom</b> de l'allergène</li>
+    			</ul>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>aliment_allergene</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> de l'aliment</li>
+    				<li><b>ID</b> de l'allergène</li>
+    			</ul>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>symptomes</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> du symptome</li>
+    				<li><b>nom</b> du symptome</li>
+    			</ul>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>symptomes_user</td>
+    		<td>
+    			<ul>
+    				<li><b>ID</b> du symptome</li>
+    				<li><b>ID</b> de l'utilisateur</li>
+    				<li><b>date</b> d'apparition du symptome</li>
+    				<li><b>intensité</b> du symptome</li>
+    			</ul>
+    		</td>
+    	</tr>
+
+    </table>
+
+    <h2>5. Fonctionnement de l’API :</h2>
+    <p>
+    L’API devra être en mesure de fournir les services suivants :
+    </p>
+    <ul>
+    	<li>créer un repas à partir d’une liste d’aliments et d’une date fournie par l’utilisateur</li>
+    	<li>restituer les repas consommées par l’utilisateur sous forme d’un tableau</li>
+    	<li>de vérifier si le username et le password fournis par l’utilisateur sont bien dans la base de données et de créer un JsonWebtoken qui sera stocké sur le localStorage de l’utilisateur. Le token permettra à l’utilisateur d’accéder à ses données de manière sécurisée.</li>
+    </ul>
+    <p>
+    	Ces fonctionnalités peuvent être trouvées dans la partie « routes/api.js »
+    </p>
+
+
+    <h2>6. CSS</h2>
+    <p>
+    Deux templates ont été utilisés :
+    </p>
+    <ul>
+    	<li>le template <a href="http://blacktie.co/2014/02/shield-one-page-theme/">‘Shield’</a> pour la page d’acceuil qui a pour but d’informer.</li>
+    	<li>le template <a href="http://blacktie.co/2014/07/dashgum-free-dashboard/">‘Dashgum-free’</a> pour le coté application orienté utilisateur.</li>
+    </ul>
+
+  </body>
+</html>
